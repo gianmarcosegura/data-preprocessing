@@ -29,10 +29,14 @@ y = dataset.iloc[:, 3]
 
 
 # Codificar a datos categoricos
-# variables categóricas
-# variables ordinales
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import make_column_transformer
+onehotencoder = make_column_transformer((OneHotEncoder(), [0]), remainder = "passthrough")
+X = onehotencoder.fit_transform(X)
 
-# Útil para variables ordinales
+
+
+# Codificar a datos ordinales
 from sklearn import preprocessing
 labelencoder_Y = preprocessing.LabelEncoder()
 y = labelencoder_Y.fit_transform(y)

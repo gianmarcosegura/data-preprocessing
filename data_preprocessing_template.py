@@ -25,13 +25,6 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3]
 
 
-# Útil para variables categóricas
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.compose import make_column_transformer
-onehotencoder = make_column_transformer((OneHotEncoder(), [0]), remainder = "passthrough")
-X = onehotencoder.fit_transform(X)
-
-
 # Dividir el data set en conjunto de entrenamiento y conjunto de tenting
 # random_state > numero aleatorio para que te devuelva aleatoriamente unos valores a probar
 # test_size
